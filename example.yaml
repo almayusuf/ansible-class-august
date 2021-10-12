@@ -1,11 +1,17 @@
---- # This is a test
+--- # Connection
 - name: Install packages
-  hosts: ubuntu
+  hosts: all
   become: true
   become_method: sudo 
   user: ec2-user
   tasks: 
-    - name: Install telnet 
-      ansible.builtin.package:
-        name: telnet
-        state: present
+
+
+
+
+
+  # Task block
+  - name: Install telnet 
+    ansible.builtin.package:
+      name: telnet
+      state: present
