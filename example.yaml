@@ -14,4 +14,4 @@
   - name: Install telnet 
     ansible.builtin.package:
       name: telnet
-      state: absent
+      state: absent            #present       #latest
