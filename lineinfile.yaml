@@ -7,8 +7,8 @@
   become_method: sudo 
   user: ec2-user
   tasks: 
-  - name: Add a line to a file if the file does not exist, without passing regexp
+  - name: Ensure testfile content is changed
     ansible.builtin.lineinfile:
       path: /tmp/testfile
-      line: 192.168.1.99 foo.lab.net foo
-      create: yes
+      regexp: '^192.168.1.99'
+      line: 172.16.1.99 foo.lab.net foo
