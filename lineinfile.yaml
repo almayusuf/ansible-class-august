@@ -1,0 +1,14 @@
+--- # Connection
+# ansible-playbook lineinfile.yaml 
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html
+- name: Install packages
+  hosts: localhost
+  become: true
+  become_method: sudo 
+  user: ec2-user
+  tasks: 
+  - name: Add a line to a file if the file does not exist, without passing regexp
+    ansible.builtin.lineinfile:
+      path: /tmp/testfile
+      line: 192.168.1.99 foo.lab.net foo
+      create: yes
