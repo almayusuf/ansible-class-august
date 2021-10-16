@@ -9,6 +9,11 @@
   tasks: 
   - name: Ensure group "somegroup" exists
     ansible.builtin.group:
-      name: somegroup
+      name: "{{ item }}"
       state: present
+    with_items:
+    - somegroup
+    - billing
+    - marketing
+    - sales
 
