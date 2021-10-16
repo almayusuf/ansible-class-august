@@ -17,7 +17,7 @@
 
   - name: Recursively change ownership of a directory
     ansible.builtin.file:
-      path: /etc/foo
+      path: /tmp/foo
       state: directory
       recurse: yes
       owner: ec2-user
