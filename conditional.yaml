@@ -1,6 +1,6 @@
 --- # Connection
-# ansible-playbook user.yaml 
-# link: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
+# ansible-playbook conditional.yaml 
+# link: https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html
 - name: Install packages
   hosts: localhost
   become: true
@@ -18,7 +18,7 @@
     - lisa
 
 
-    
+
   - name: Add Groups to Ubuntu
     when: ( ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "16.04" )
     ansible.builtin.group:
