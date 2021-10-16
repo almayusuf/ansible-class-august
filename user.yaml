@@ -7,8 +7,9 @@
   tasks: 
   - name: Add users
     ansible.builtin.user:
-      name: 
-      - johnd
-      - lisa
-      - ben
+      name: "{{ item }}"
       state: present
+    with_items:
+    - ben
+    - johnd
+    - lisa
