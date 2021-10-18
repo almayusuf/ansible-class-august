@@ -18,6 +18,7 @@
 
 
   - name: Get wordpress 
+    when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
     get_url:
       url: https://wordpress.org/wordpress-4.0.32.tar.gz
       dest: /tmp/wordpress-4.0.32.tar.gz
