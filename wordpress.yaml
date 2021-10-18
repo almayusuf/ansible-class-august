@@ -32,3 +32,9 @@
       src: /tmp/wordpress-4.0.32.tar.gz
       dest: /var/www/html
       remote_src: true
+
+
+  - name: Host Wordpress
+    when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
+    shell: "cp -r /var/www/html/wordpress/* /var/www/html/"
+    ignore_errors: true
