@@ -22,6 +22,20 @@
     notify: 
     - Start web server
 
+
+  - name: Install mariadb
+    when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
+    package: 
+      name: "{{ item }}" 
+      state: present
+    with_items:
+    - mardiadb
+    notify: 
+    - Start DB server
+
+
+
+
   - name: Get wordpress 
     when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
     get_url:
@@ -47,5 +61,12 @@
     when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
     systemd: 
       name: httpd 
+      state: restarted
+      enabled: true
+
+  - name: Start DB server
+    when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
+    systemd: 
+      name: mariadb 
       state: restarted
       enabled: true
