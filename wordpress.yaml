@@ -15,7 +15,8 @@
     - php
     - php-mysql
     - wget 
-    notify: Start web server
+    notify: 
+    - Start web server
 
   - name: Get wordpress 
     when: ( ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "CentOS" )
