@@ -2,13 +2,13 @@
 ---
 - name: Add ec2
   hosts: localhost
+  vars_files:
+    envs/dev.yaml
   tasks:
   - name: create a VPC with dedicated tenancy and a couple of tags
     amazon.aws.ec2_vpc_net:
-      name: ansible2
-      cidr_block: 10.0.0.0/16
-      region: us-east-2
-      tags:
-        module: ec2_vpc_net
-        this: works
-      tenancy: default
+      name: "{{ vpc_name }}"
+      cidr_block: "{{ vpc_cidr_block }}"
+      region: "{{ region }}"
+      tags: "{{ aws_tags }}"
+      tenancy: "{{ vpc_tenancy }}"
