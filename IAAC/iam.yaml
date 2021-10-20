@@ -7,11 +7,19 @@
     community.aws.iam:
       iam_type: user
       name: "{{ item }}"
-      state: absent
+      state: present
       password: "3l6EUHxi2wL8XNR$$OUdJYES@wL#Fi6hCokl6IployJrJyRC7e"
       access_key_state: create
     loop:
       - ansible_user1
       - ansible_user2
+      
+
+  - name: Delete users
+    community.aws.iam:
+      iam_type: user
+      name: "{{ item }}"
+      state: absent
+    loop:
       - bob
       - john
