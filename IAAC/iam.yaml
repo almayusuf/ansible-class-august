@@ -3,7 +3,7 @@
 - name: Add IAM users
   hosts: localhost
   tasks:
-  - name: Create two new IAM users with API keys
+  - name: Create Users
     community.aws.iam:
       iam_type: user
       name: "{{ item }}"
