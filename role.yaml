@@ -1,0 +1,7 @@
+---
+- name: Executes role
+  hosts: localhost
+  become: yes
+  become_method: sudo 
+  roles:
+    role: '/home/ec2-user/ansible-class-august/ROLES/example'
